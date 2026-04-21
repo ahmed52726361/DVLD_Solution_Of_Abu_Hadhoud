@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -61,7 +61,7 @@ namespace DVLD.Classes
             // project images foldr after renaming it
             // with GUID with the same extention, then it will update the sourceFileName with the new name.
 
-            string DestinationFolder = @"C:\DVLD-People-Images\";
+            string DestinationFolder = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + @"\DVLD-People-Images\";
             if (!CreateFolderIfDoesNotExist(DestinationFolder))
             {
                 return false;

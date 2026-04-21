@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -19,12 +19,11 @@ namespace DVLD.Classes
 
             try
             {
-                //this will get the current project directory folder.
-                string currentDirectory = System.IO.Directory.GetCurrentDirectory();
-
+                // Use the user's Local AppData folder instead of Program Files to avoid Access Denied errors
+                string currentDirectory = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
 
                 // Define the path to the text file where you want to save the data
-                string filePath = currentDirectory + "\\data.txt";
+                string filePath = currentDirectory + "\\DVLD_data.txt";
 
                 //incase the username is empty, delete the file
                 if (Username=="" && File.Exists(filePath)) 
@@ -59,11 +58,11 @@ namespace DVLD.Classes
             //this will get the stored username and password and will return true if found and false if not found.
             try
             {
-                //gets the current project's directory
-                string currentDirectory = System.IO.Directory.GetCurrentDirectory();
+                // Use the user's Local AppData folder
+                string currentDirectory = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
 
                 // Path for the file that contains the credential.
-                string filePath  = currentDirectory + "\\data.txt";
+                string filePath  = currentDirectory + "\\DVLD_data.txt";
 
                 // Check if the file exists before attempting to read it
                 if (File.Exists(filePath))
